@@ -19,6 +19,19 @@ after_success:
 
   # Push images to the docker hub
   - docker push $DOCKER_ID/multi-client
-  - docker push $DOCKER_ID/multi-nginx 
+  - docker push $DOCKER_ID/multi-nginx
   - docker push $DOCKER_ID/multi-server
   - docker push $DOCKER_ID/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "multi-docker"
+  env: "MultiDocker-env"
+  bucket_name: "elasticbeanstalk-us-west-2-603762055505"
+  bucket_path: "docker-multi"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
