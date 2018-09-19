@@ -1,6 +1,6 @@
 docker build -t agentsimon/multi-client:latest -t agentsimon/multi-client:$SHA -f ./client/Dockerfile ./client
 docker build -t agentsimon/multi-server:latest -t agentsimon/multi-server:$SHA -f ./server/Dockerfile ./server
-docker build -t agentsimon/multi-worker:latest -t agentsimon/multi-workert:$SHA -f ./worker/Dockerfile ./worker
+docker build -t agentsimon/multi-worker:latest -t agentsimon/multi-worker:$SHA -f ./worker/Dockerfile ./worker
 
 docker push agentsimon/multi-client:latest
 docker push agentsimon/multi-server:latest
